@@ -1,0 +1,17 @@
+# python venv
+.venv/
+venv/
+env/
+
+# jupyter noise
+.ipynb_checkpoints/
+
+# data / outputs
+splits/
+candidates/
+*.parquet
+*.csv
+
+# OS junk
+.DS_Store
+Thumbs.db
