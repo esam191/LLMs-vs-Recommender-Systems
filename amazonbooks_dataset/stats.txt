@@ -1,0 +1,8 @@
+Time-aware LOO split summary
+Users (TRAIN map): 60597
+Items (TRAIN map): 26522
+TRAIN positives : 690814
+VAL users       : 60597
+TEST users      : 60597
+Cold-start VAL items : 228
+Cold-start TEST items: 994
