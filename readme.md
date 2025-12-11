@@ -69,7 +69,7 @@ The goal is to compare **traditional recommenders** against **LLM-based rankers*
 
 ---
 
-## LLM Experiments
+## LLMs
 
 ### MovieLens LLM Notebook  
 **`movielens/notebooks/movielens_llm_zeroshot+finetune.ipynb`**
@@ -90,7 +90,7 @@ This notebook implements **LLM-based rerankers** on top of the MovieLens candida
     - “Given this history and candidate, will the user watch it next? Answer YES or NO.”
   - Fine-tunes `Llama-3.2-3B-Instruct-bnb-4bit` with **LoRA** (via Unsloth + TRL `SFTTrainer`).
   - At inference:
-    - Scores each candidate by \( p(\text{YES} \mid \text{history}, \text{candidate}) \) from the YES/NO logits.
+    - Scores each candidate by p(YES | history, candidate) from the YES/NO logits.
     - Reranks the same 50-item candidate pools and recomputes HR@K / NDCG@K.
   - Includes logging of prompts, rankings, and a small learning-curve plot for the LoRA adapters.
 
@@ -111,7 +111,7 @@ This notebook mirrors the MovieLens LLM setup, but on **Amazon Books**:
 - **LoRA fine-tuning for CTR**
   - Constructs a binary dataset of (history, candidate, label) from the AmazonBooks training interactions.
   - Fine-tunes the LLM with LoRA to predict YES/NO for each user–book pair.
-  - Uses the resulting \( p(\text{YES} \mid \text{history}, \text{candidate}) \) scores to rerank candidates and compare against NeuMF/ALS.
+  - Uses the resulting p(YES | history, candidate) scores to rerank candidates and compare against NeuMF/ALS.
 
 This notebook provides the **LLM counterpart to the AmazonBooks NeuMF baseline**, enabling MovieLens–AmazonBooks cross-dataset comparisons for LLM-based ranking.
 
